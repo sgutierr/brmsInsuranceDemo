@@ -1,0 +1,2 @@
+'Policy.policyType' : ['AUTO', 'LIFE', 'HOME']
+'Policy.coverage[policyType=AUTO]' : ['ALL RISK','BASIC']

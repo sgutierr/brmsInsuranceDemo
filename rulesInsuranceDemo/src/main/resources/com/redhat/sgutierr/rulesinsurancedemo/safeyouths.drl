@@ -1,0 +1,14 @@
+package com.redhat.sgutierr.rulesinsurancedemo;
+
+rule "safeyouths"
+
+    when
+        // Conditions
+        driverR : Driver(age > 17 && < 25, numberOfAccidents < 1, numberOfTickets <= 1)
+		policyR : Policy(price == 0, policyType contains "AUTO")
+    then
+        // Actions
+        modify(policyR) {setPrice(450)}
+        System.out.println("fired rule " + kcontext.getRule().getName());
+
+end

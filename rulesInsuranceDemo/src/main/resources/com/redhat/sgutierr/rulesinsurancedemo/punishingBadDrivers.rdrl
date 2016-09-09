@@ -1,0 +1,16 @@
+package com.redhat.sgutierr.rulesinsurancedemo;
+
+import java.lang.Number;
+
+rule "punishingBadDrivers"
+	ruleflow-group "BadDrivers"
+	dialect "mvel"
+	when
+		Driver( numberOfAccidents > 3 , numberOfTickets >= 1 || age < 30 )
+		poli : Policy( pol : vehicleYear < 2005 )
+	then
+		modify( poli ) {
+				setPrice( 500 )
+		}
+		System.out.println("The rule fire is"+kcontext.getRule().getName());
+end

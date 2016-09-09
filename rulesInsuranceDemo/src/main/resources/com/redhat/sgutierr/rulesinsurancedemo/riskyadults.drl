@@ -1,0 +1,14 @@
+package com.redhat.sgutierr.rulesinsurancedemo;
+
+
+rule "riskyadults"
+
+    when
+		// Conditions
+		driverR : Driver(age > 24, numberOfAccidents > 0 || numberOfTickets >= 2)
+		policyR : Policy(price == 0, policyType == "AUTO")
+    then
+        // Actions
+        modify(policyR) {setPrice(300)}
+        System.out.println("fired rule " + kcontext.getRule().getName());
+end

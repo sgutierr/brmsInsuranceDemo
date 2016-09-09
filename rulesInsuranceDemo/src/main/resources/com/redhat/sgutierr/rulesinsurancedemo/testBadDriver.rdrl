@@ -1,0 +1,9 @@
+package com.redhat.sgutierr.rulesinsurancedemo;
+
+import java.lang.Number;
+
+rule "testBadDriver"
+	dialect "mvel"
+	when
+	then
+end
